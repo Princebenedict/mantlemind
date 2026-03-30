@@ -54,7 +54,6 @@ git push origin main
 If GitHub is connected to Vercel, each push to main will trigger a new deployment automatically.
 
 
-If you use external APIs in production, keep secrets on the server side and avoid exposing them in the frontend.
 
 Future Improvements
 Add more Mantle ecosystem assets
