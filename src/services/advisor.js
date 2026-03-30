@@ -61,14 +61,16 @@ function buildRiskProfile(portfolio, total, activeAssets) {
   if (total === 0) {
     return {
       riskScore: "Low",
-      riskReason: "Your wallet currently holds no tracked Mantle assets, so active portfolio risk is limited.",
+      riskReason:
+        "Your wallet currently holds no tracked Mantle assets, so active portfolio risk is limited.",
     };
   }
 
   if (activeAssets.length === 1) {
     return {
       riskScore: "High",
-      riskReason: "Your portfolio is concentrated in a single tracked asset, which increases concentration risk.",
+      riskReason:
+        "Your portfolio is concentrated in a single tracked asset, which increases concentration risk.",
     };
   }
 
@@ -109,8 +111,11 @@ function buildStrategies(total, activeAssets, currentYield) {
       {
         title: "Conservative Income",
         style: "Low risk",
+        tone: "conservative",
         expectedYield: "4.9% - 6.2%",
-        thesis: "Start with steadier Mantle opportunities focused on smoother yield and lower concentration risk.",
+        protocolFocus: "USDY, MI4",
+        thesis:
+          "Start with steadier Mantle opportunities focused on smoother yield and lower concentration risk.",
         actions: [
           "Begin with USDY for more stable yield exposure.",
           "Add MI4 for diversified access across the Mantle ecosystem.",
@@ -120,8 +125,11 @@ function buildStrategies(total, activeAssets, currentYield) {
       {
         title: "Balanced Mantle Mix",
         style: "Medium risk",
+        tone: "balanced",
         expectedYield: "5.1% - 8.1%",
-        thesis: "Blend staking-style exposure and ecosystem strategies for a stronger balance between stability and upside.",
+        protocolFocus: "cmETH, MI4, MNT",
+        thesis:
+          "Blend staking-style exposure and ecosystem strategies for a stronger balance between stability and upside.",
         actions: [
           "Split capital across cmETH, MI4, and selective MNT exposure.",
           "Keep part of the portfolio flexible for better reallocation opportunities.",
@@ -131,8 +139,11 @@ function buildStrategies(total, activeAssets, currentYield) {
       {
         title: "Aggressive Yield",
         style: "High risk",
+        tone: "aggressive",
         expectedYield: "Up to 8.1%",
-        thesis: "Target the highest-yield Mantle opportunities with more volatility and concentration risk.",
+        protocolFocus: "MNT LP, cmETH",
+        thesis:
+          "Target the highest-yield Mantle opportunities with more volatility and concentration risk.",
         actions: [
           "Increase MNT-linked opportunity exposure for maximum upside.",
           "Use cmETH where higher staking yield fits your risk tolerance.",
@@ -151,8 +162,11 @@ function buildStrategies(total, activeAssets, currentYield) {
     {
       title: "Protect and Stabilize",
       style: "Low risk",
+      tone: "conservative",
       expectedYield: conservativeYield,
-      thesis: "Reduce concentration, preserve flexibility, and favor steadier Mantle yield sources.",
+      protocolFocus: "USDY, MI4",
+      thesis:
+        "Reduce concentration, preserve flexibility, and favor steadier Mantle yield sources.",
       actions: [
         "Shift part of concentrated exposure into MI4 or USDY-style defensive yield positions.",
         "Keep some capital in lower-volatility assets before chasing higher returns.",
@@ -162,8 +176,11 @@ function buildStrategies(total, activeAssets, currentYield) {
     {
       title: "Balanced Optimization",
       style: "Medium risk",
+      tone: "balanced",
       expectedYield: balancedYield,
-      thesis: "Improve returns while keeping the portfolio reasonably diversified across Mantle opportunities.",
+      protocolFocus: "cmETH, MI4, mETH",
+      thesis:
+        "Improve returns while keeping the portfolio reasonably diversified across Mantle opportunities.",
       actions: [
         "Compare mETH and cmETH allocations to improve staking yield efficiency.",
         "Blend diversified Mantle exposure with one or two higher-yield positions.",
@@ -173,8 +190,11 @@ function buildStrategies(total, activeAssets, currentYield) {
     {
       title: "Higher-Yield Rotation",
       style: "High risk",
+      tone: "aggressive",
       expectedYield: aggressiveYield,
-      thesis: "Tilt the portfolio toward stronger-yield Mantle opportunities while accepting more concentration and volatility.",
+      protocolFocus: "MNT LP, cmETH",
+      thesis:
+        "Tilt the portfolio toward stronger-yield Mantle opportunities while accepting more concentration and volatility.",
       actions: [
         "Increase exposure to higher-yield ecosystem opportunities like MNT-linked strategies.",
         "Rotate from lower-yield positions if your risk tolerance allows.",
@@ -205,6 +225,7 @@ export async function getMantleAdvice(address, balances) {
     strategies,
   };
 }
+
 
 
 

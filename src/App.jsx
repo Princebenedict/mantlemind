@@ -16,6 +16,12 @@ const TOKEN_ICONS = {
   FBTC: "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=040",
 };
 
+const STRATEGY_BADGES = {
+  conservative: "Conservative",
+  balanced: "Balanced",
+  aggressive: "Aggressive",
+};
+
 function TokenIcon({ token }) {
   const [failed, setFailed] = useState(false);
 
@@ -68,7 +74,6 @@ export default function App() {
       <header className="app-header">
         <div className="brand-lockup">
           <div className="brand-badge brand-badge-text">M</div>
-
           <div>
             <div className="logo">MantleMind</div>
             <p className="tagline">AI Wealth Co-Pilot for Mantle</p>
@@ -342,13 +347,23 @@ export default function App() {
 
                     <div className="strategy-cards">
                       {advice.strategies?.map((strategy) => (
-                        <article className="strategy-option-card" key={strategy.title}>
+                        <article
+                          className={`strategy-option-card tone-${strategy.tone}`}
+                          key={strategy.title}
+                        >
                           <div className="strategy-option-top">
                             <div>
                               <h3>{strategy.title}</h3>
-                              <span className="strategy-style">{strategy.style}</span>
+                              <span className={`strategy-badge tone-${strategy.tone}`}>
+                                {STRATEGY_BADGES[strategy.tone] || strategy.style}
+                              </span>
                             </div>
                             <span className="strategy-yield">{strategy.expectedYield}</span>
+                          </div>
+
+                          <div className="strategy-meta">
+                            <span className="protocol-pill">{strategy.protocolFocus}</span>
+                            <span className="style-pill">{strategy.style}</span>
                           </div>
 
                           <p className="strategy-thesis">{strategy.thesis}</p>
@@ -387,5 +402,6 @@ export default function App() {
     </div>
   );
 }
+
 
 
