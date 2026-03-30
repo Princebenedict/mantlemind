@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useWallet } from "./hooks/useWallet";
 import { getMantleAdvice } from "./services/advisor";
-import mantleMindLogo from "./assets/mantlemind-logo.png";
 import "./App.css";
 
 const RISK_COLOR = {
@@ -68,9 +67,7 @@ export default function App() {
 
       <header className="app-header">
         <div className="brand-lockup">
-          <div className="brand-badge">
-            <img src={mantleMindLogo} alt="MantleMind logo" className="mantle-logo" />
-          </div>
+          <div className="brand-badge brand-badge-text">M</div>
 
           <div>
             <div className="logo">MantleMind</div>
@@ -358,4 +355,3 @@ export default function App() {
     </div>
   );
 }
-

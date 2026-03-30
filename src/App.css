@@ -111,18 +111,18 @@ img {
   border-radius: 18px;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.04);
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
   flex-shrink: 0;
-  padding: 8px;
 }
 
-.mantle-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
+.brand-badge-text {
+  color: #082019;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
 }
 
 .logo {
@@ -687,7 +687,10 @@ img {
   .brand-badge {
     width: 54px;
     height: 54px;
-    padding: 7px;
+  }
+
+  .brand-badge-text {
+    font-size: 1.5rem;
   }
 
   .logo {
@@ -749,6 +752,7 @@ img {
     font-size: 1.3rem;
   }
 }
+
 
 
 
