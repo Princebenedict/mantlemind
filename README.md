@@ -42,8 +42,9 @@ npm run dev
 Build for production:
 
 npm run build
+
 Deployment
-This project can be deployed with Vercel.
+Vercel.
 
 Typical workflow:
 
@@ -52,8 +53,6 @@ git commit -m "Update project"
 git push origin main
 If GitHub is connected to Vercel, each push to main will trigger a new deployment automatically.
 
-Security Note
-Do not commit .env files or private API keys.
 
 If you use external APIs in production, keep secrets on the server side and avoid exposing them in the frontend.
 
