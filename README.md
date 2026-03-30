@@ -70,25 +70,6 @@ mantlemind/
 └── README.md
 
 
-Create a local environment file:
-VITE_GEMINI_API_KEY=your_api_key_here
-Start the development server:npm run dev
-Build for production:
-npm run build
-
-Deployment
-This project can be deployed with Vercel.
-
-Typical workflow:
-
-git add .
-git commit -m "Update project"
-git push
-If GitHub is connected to Vercel, each push triggers a redeploy automatically.
-
-Security Note
-Do not commit .env files or secrets.
-For production, API calls should be moved to a backend or serverless function so secret keys are not exposed in the frontend.
 
 Future Improvements
 Add more supported Mantle assets
