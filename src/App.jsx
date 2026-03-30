@@ -50,7 +50,7 @@ export default function App() {
       const result = await getMantleAdvice(address, balances);
       setAdvice(result);
     } catch (analysisError) {
-      console.error("AI Analysis Error:", analysisError);
+      console.error("Strategy Engine Error:", analysisError);
       setAiError(analysisError.message || "Analysis failed. Please try again.");
     } finally {
       setAnalyzing(false);
@@ -119,8 +119,8 @@ export default function App() {
                 <span>{address ? "tokens detected" : "portfolio monitoring"}</span>
               </div>
               <div className="metric-chip">
-                <strong>AI-ranked</strong>
-                <span>ecosystem opportunities</span>
+                <strong>Multi-view</strong>
+                <span>yield opinions</span>
               </div>
               <div className="metric-chip">
                 <strong>Mantle-native</strong>
@@ -183,12 +183,12 @@ export default function App() {
             <p>See Mantle balances and token positions in a layout that feels product-ready.</p>
           </div>
           <div className="trust-item">
-            <span className="trust-title">Better decision context</span>
-            <p>Risk, recommendations, and next actions are grouped so users know what matters.</p>
+            <span className="trust-title">Different strategy opinions</span>
+            <p>Get conservative, balanced, and higher-yield views instead of one repeated answer.</p>
           </div>
           <div className="trust-item">
-            <span className="trust-title">Stronger product story</span>
-            <p>A sharper interface helps demos, user trust, and overall project credibility.</p>
+            <span className="trust-title">Mantle ecosystem context</span>
+            <p>Recommendations are framed around yield paths across the Mantle ecosystem.</p>
           </div>
         </section>
 
@@ -203,22 +203,22 @@ export default function App() {
               </div>
 
               <p className="section-description">
-                Unlock personalized risk assessment, AI portfolio analysis, and more actionable
-                yield recommendations based on your live Mantle wallet data.
+                Unlock portfolio-aware guidance, yield comparison, and multiple Mantle strategy
+                opinions based on your current wallet positions.
               </p>
 
               <div className="connect-benefits">
                 <div className="benefit-box">
                   <strong>Portfolio scan</strong>
-                  <span>Review supported balances and on-chain positions quickly.</span>
+                  <span>Review supported balances and tracked positions quickly.</span>
                 </div>
                 <div className="benefit-box">
                   <strong>Risk awareness</strong>
-                  <span>Understand exposure, idle capital, and concentration faster.</span>
+                  <span>Understand concentration, exposure, and yield tradeoffs.</span>
                 </div>
                 <div className="benefit-box">
-                  <strong>AI recommendations</strong>
-                  <span>Receive cleaner next steps using Mantle ecosystem context.</span>
+                  <strong>Multiple strategies</strong>
+                  <span>See different Mantle yield paths instead of one fixed opinion.</span>
                 </div>
               </div>
 
@@ -257,7 +257,7 @@ export default function App() {
                 <button onClick={runAnalysis} disabled={analyzing} className="btn-primary large-button">
                   {analyzing ? (
                     <span className="loading-text">
-                      Analyzing with AI<span className="dots"></span>
+                      Analyzing Strategies<span className="dots"></span>
                     </span>
                   ) : (
                     "Generate Strategy Report"
@@ -302,7 +302,7 @@ export default function App() {
                 <section className="card advice-card full-width">
                   <div className="section-header">
                     <div>
-                      <span className="section-kicker">AI report</span>
+                      <span className="section-kicker">Strategy report</span>
                       <h2>Your personalized Mantle strategy</h2>
                     </div>
                   </div>
@@ -332,8 +332,39 @@ export default function App() {
                     </div>
                   </div>
 
+                  <div className="strategy-opinions">
+                    <div className="section-header compact-header">
+                      <div>
+                        <span className="section-kicker">Multiple views</span>
+                        <h2>Yield opinions across Mantle</h2>
+                      </div>
+                    </div>
+
+                    <div className="strategy-cards">
+                      {advice.strategies?.map((strategy) => (
+                        <article className="strategy-option-card" key={strategy.title}>
+                          <div className="strategy-option-top">
+                            <div>
+                              <h3>{strategy.title}</h3>
+                              <span className="strategy-style">{strategy.style}</span>
+                            </div>
+                            <span className="strategy-yield">{strategy.expectedYield}</span>
+                          </div>
+
+                          <p className="strategy-thesis">{strategy.thesis}</p>
+
+                          <ul className="strategy-actions">
+                            {strategy.actions.map((action) => (
+                              <li key={action}>{action}</li>
+                            ))}
+                          </ul>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="recommendation-block">
-                    <h3>Actionable recommendations</h3>
+                    <h3>Primary actionable recommendations</h3>
                     <ol className="recs">
                       {advice.recommendations?.map((recommendation, index) => (
                         <li key={index}>{recommendation}</li>
@@ -349,9 +380,12 @@ export default function App() {
 
       <footer className="footer">
         <p>
-          Powered by <span className="mantle-text">Mantle</span> • AI-guided portfolio intelligence
+          Powered by <span className="mantle-text">Mantle</span> • Strategy intelligence for the
+          Mantle ecosystem
         </p>
       </footer>
     </div>
   );
 }
+
+

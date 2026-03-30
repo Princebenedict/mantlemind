@@ -192,7 +192,8 @@ img {
 .section-header h2,
 .recommendation-block h3,
 .metric-value,
-.strategy-score h2 {
+.strategy-score h2,
+.strategy-option-top h3 {
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -322,6 +323,10 @@ img {
   gap: 16px;
 }
 
+.compact-header {
+  margin-top: 8px;
+}
+
 .panel-label,
 .mini-label,
 .metric-label,
@@ -332,7 +337,9 @@ img {
 .trust-item p,
 .footer p,
 .wallet-identity span,
-.insight-stat span {
+.insight-stat span,
+.strategy-style,
+.strategy-thesis {
   color: var(--muted);
 }
 
@@ -366,7 +373,8 @@ img {
 .insight-stat,
 .benefit-box,
 .metric-box,
-.summary-box {
+.summary-box,
+.strategy-option-card {
   padding: 18px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.035);
@@ -556,10 +564,62 @@ img {
   font-size: 1.02rem;
 }
 
-.two-col {
+.two-col,
+.strategy-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.strategy-opinions {
+  display: grid;
+  gap: 18px;
+}
+
+.strategy-option-card {
+  display: grid;
+  gap: 14px;
+}
+
+.strategy-option-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.strategy-option-top h3 {
+  font-size: 1.25rem;
+}
+
+.strategy-style {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.92rem;
+}
+
+.strategy-yield {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(133, 246, 199, 0.12);
+  color: var(--primary);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.strategy-thesis {
+  line-height: 1.7;
+}
+
+.strategy-actions {
+  padding-left: 20px;
+  color: var(--text);
+}
+
+.strategy-actions li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .metric-value {
@@ -648,7 +708,8 @@ img {
   .dashboard-grid,
   .trust-row,
   .connect-benefits,
-  .two-col {
+  .two-col,
+  .strategy-cards {
     grid-template-columns: 1fr;
   }
 
@@ -671,7 +732,8 @@ img {
   .hero-actions,
   .panel-card-head,
   .section-header,
-  .balance-row {
+  .balance-row,
+  .strategy-option-top {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -711,7 +773,9 @@ img {
   .strategy-copy,
   .section-description,
   .trust-item p,
-  .recs li {
+  .recs li,
+  .strategy-thesis,
+  .strategy-actions li {
     font-size: 0.98rem;
   }
 
@@ -751,7 +815,12 @@ img {
   .recommendation-block h3 {
     font-size: 1.3rem;
   }
+
+  .strategy-yield {
+    white-space: normal;
+  }
 }
+
 
 
 
