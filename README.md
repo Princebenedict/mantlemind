@@ -1,27 +1,97 @@
 # MantleMind
 
-MantleMind is an AI-powered wealth co-pilot for the Mantle ecosystem. It helps users connect a Mantle wallet, review token balances, and generate personalized yield strategy insights based on current portfolio positioning.
+MantleMind is an AI-powered wealth co-pilot built for the Mantle ecosystem. It helps users connect a Mantle wallet, inspect supported token balances, and receive portfolio-aware yield strategy guidance through a clean, professional interface.
+
+The project is designed as a product-style DeFi frontend focused on better organization, clearer decision-making, and a stronger first impression for users, demos, and ecosystem presentation.
+
+## Overview
+
+MantleMind aims to simplify how users understand their position on Mantle by combining:
+
+- wallet connection
+- live token balance discovery
+- AI-powered portfolio interpretation
+- yield opportunity framing
+- a clean, responsive dashboard experience
+
+The app is especially useful as an early-stage product prototype, hackathon demo, ecosystem tool, or starting point for a more advanced Mantle-native wealth dashboard.
 
 ## Features
 
-- Mantle wallet connection
-- Automatic balance detection for supported Mantle assets
-- AI-generated portfolio analysis
-- Risk score and yield gap summary
-- Actionable Mantle-focused recommendations
-- Responsive product-style UI for desktop and mobile
+- Connect a wallet on Mantle Mainnet
+- Detect supported asset balances from the connected wallet
+- Display portfolio holdings in a clean dashboard layout
+- Generate AI-based strategy suggestions
+- Show risk score and yield gap summary
+- Surface actionable recommendations using Mantle-focused context
+- Responsive interface for desktop and mobile
+- Product-style branding and polished UI presentation
+
+## Supported Assets
+
+The current version tracks these assets:
+
+- `MNT`
+- `mETH`
+- `cmETH`
+- `FBTC`
+
+You can extend support by updating the token list inside the wallet hook.
 
 ## Tech Stack
 
-- React
-- Vite
-- CSS
-- Ethers.js
-- Gemini API
+This project uses:
 
-## Getting Started
+- `React`
+- `Vite`
+- `CSS`
+- `ethers.js`
+- `Gemini API`
+- `Vercel`
 
-### 1. Install dependencies
+## Project Structure
 
 ```bash
-npm install
+mantlemind/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── hooks/
+│   │   └── useWallet.js
+│   ├── services/
+│   │   └── advisor.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── package.json
+├── vite.config.js
+└── README.md
+
+
+Create a local environment file:
+VITE_GEMINI_API_KEY=your_api_key_here
+Start the development server:npm run dev
+Build for production:
+npm run build
+
+Deployment
+This project can be deployed with Vercel.
+
+Typical workflow:
+
+git add .
+git commit -m "Update project"
+git push
+If GitHub is connected to Vercel, each push triggers a redeploy automatically.
+
+Security Note
+Do not commit .env files or secrets.
+For production, API calls should be moved to a backend or serverless function so secret keys are not exposed in the frontend.
+
+Future Improvements
+Add more supported Mantle assets
+Add charts and analytics
+Move AI analysis to a secure backend
+Improve portfolio insights and recommendations
